@@ -1,4 +1,4 @@
-./objects/main.o: main.c C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+./objects/sys.o: C:\Keil_v5\Library\StdDriver\Source\sys.c \
   C:\Keil_v5\Library\NUC100Series\Include\NUC100Series.h \
   C:\Keil_v5\Library\CMSIS\Include\core_cm0.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \

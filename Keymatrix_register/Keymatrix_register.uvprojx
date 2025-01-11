@@ -22,7 +22,7 @@
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
           <FlashDriverDll>UL2CM3(-S0 -C0 -P0 -FD20000000 -FC2000 -FN1 -FF0NUC100_AP_128 -FS00 -FL020000 -FP0($$Device:NUC140VE3CN$Flash\NUC100_AP_128.FLM))</FlashDriverDll>
-          <DeviceId>0</DeviceId>
+          <DeviceId>7139</DeviceId>
           <RegisterFile>$$Device:NUC140VE3CN$Device\NUC100\Include\NUC100Series.h</RegisterFile>
           <MemoryEnv></MemoryEnv>
           <Cmp></Cmp>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\Objects\</OutputDirectory>
-          <OutputName>Assignment3_Question2</OutputName>
+          <OutputName>Keymatrix_builtinfunction</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
@@ -110,11 +110,11 @@
         </CommonProperty>
         <DllOption>
           <SimDllName>SARMCM3.DLL</SimDllName>
-          <SimDllArguments>  </SimDllArguments>
+          <SimDllArguments></SimDllArguments>
           <SimDlgDll>DARMCM1.DLL</SimDlgDll>
           <SimDlgDllArguments>-pCM0</SimDlgDllArguments>
           <TargetDllName>SARMCM3.DLL</TargetDllName>
-          <TargetDllArguments> </TargetDllArguments>
+          <TargetDllArguments></TargetDllArguments>
           <TargetDlgDll>TARMCM1.DLL</TargetDlgDll>
           <TargetDlgDllArguments>-pCM0</TargetDlgDllArguments>
         </DllOption>
@@ -134,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>C:\Keil_v5\Library\StdDriver\Include;C:\Keil_v5\Library\NuMakerLib\Include;C:\Keil_v5\Library\NUC100Series\Include;C:\Keil_v5\Library\NUC1xx-LB_002\Include;C:\Keil_v5\Library\CMSIS\Include</IncludePath>
+              <IncludePath>C:\Keil_v5\Library\CMSIS\Include;C:\Keil_v5\Library\NUC1xx-LB_002\Include;C:\Keil_v5\Library\NUC100Series\Include;C:\Keil_v5\Library\NuMakerLib\Include;C:\Keil_v5\Library\StdDriver\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -381,7 +381,7 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>UserSources</GroupName>
+          <GroupName>User Sources</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
@@ -427,28 +427,6 @@
         </Group>
         <Group>
           <GroupName>User Headers</GroupName>
-          <Files>
-            <File>
-              <FileName>displayDigit.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\displayDigit.h</FilePath>
-            </File>
-            <File>
-              <FileName>setupGPIO.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\setupGPIO.h</FilePath>
-            </File>
-            <File>
-              <FileName>enableClockSource.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\enableClockSource.h</FilePath>
-            </File>
-            <File>
-              <FileName>enableTimer0.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\enableTimer0.h</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>

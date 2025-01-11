@@ -1,60 +1,72 @@
 #include <stdio.h>
-#include "SYS_init.h"
 #include "NUC100Series.h"
-#include "enableClockSource.h"
-#include "setupGPIO.h"
-#include "enableTimer0.h"
-#include "displayDigit.h"
-volatile int countU13 = 0;
-volatile int countU14 = 0;
-volatile int countU12 = 0;
-volatile int countU11 = 0;
 
-void TMR1_IRQHandler(void);
+/* 
+NS state - traffic going straight through in North and South directions
+EW state - traffic going straight through in East and West directions
+*/
+
+enum light_state {NS, EW};
+enum light_state state = NS; // Initial state is NS
+
+void GPIO_Init(void)
+{
+    // Configure LED5 and LED8 as output
+    PC->PMD &= (~(0xFF << 24));  // Clear PMD[24:31]
+    PC->PMD |= (0x01 << 24);     // Set PC12 (LED5) as output
+    PC->PMD |= (0x01 << 30);     // Set PC15 (LED8) as output
+
+    // Configure K1 (e.g., PB0) as input
+    PB->PMD &= ~(0x3);           // Set PB0 as input (PMD[1:0] = 00)
+    PB->DBEN |= (1 << 0);        // Enable debounce for PB0
+}
+
 int main(void)
 {
-	// -- SYSTEM INITIALIZATION --
-	SYS_UnlockReg();
+    GPIO_Init();                 // Initialize GPIO pins
+
+		PA->PMD &= (~(0b11<< 6));
+    PA->PMD |= (0b01 << 6);    
+		PA->PMD &= (~(0b11<< 8));
+    PA->PMD |= (0b01 << 8);  		
+		PA->PMD &= (~(0b11<< 10));
+    PA->PMD |= (0b01 << 10); 
 	
-	// System configuration
-	enableClockSource();
-	setupGPIO();
-	enableTimer0();
-	
-	SYS_LockReg();
-	
-	// -- DISPLAY OPERATON --
-	// Toggle the output pin
-	
-	while(1){
-		showNumbers(countU11,countU12,countU13, countU14);
-	}
+    while (1) {
+        CLK_SysTickDelay(100000); // Delay to allow for stable button reading
+        
+				PA->DOUT &= ~(1<<3);
+				PA->DOUT &= ~(1<<4);
+				PA->DOUT &= ~(1<<5);
+        if (!(PA->PIN & (1<<0))) {  // PB0 is K1
+            CLK_SysTickDelay(20000);      // Simple debounce delay
+            while ((PB->PIN & (1 << 0)) == 0); // Wait for button release
+            
+            // Change state on button press
+            if (state == NS) {
+                state = EW;
+            } else {
+                state = NS;
+            }
+        }
+
+        // Update LEDs based on state
+        switch (state) {
+            case NS: 
+                PC->DOUT |= (1 << 12);    // Turn on LED5
+                PC->DOUT &= ~(1 << 15);  // Turn off LED8
+                break;
+
+            case EW: 
+                PC->DOUT &= ~(1 << 12);  // Turn off LED5
+                PC->DOUT |= (1 << 15);   // Turn on LED8
+                break;
+
+            default: 
+                PC->DOUT &= ~(1 << 12);  // Turn off LED5
+                PC->DOUT &= ~(1 << 15);  // Turn off LED8
+                state = NS; 
+                break;
+        }
+    }
 }
-
-void TMR0_IRQHandler(void) {
-    // Clear the interrupt flag
-    TIMER0->TISR |= (1 << 0);
-
-    // Perform desired actions (e.g., increment counters, toggle LED)
-    if (countU14 == 10) {
-    countU14 = 0;        // Reset U14
-    countU13 += 1;       // Increment U13
-    }
-    if (countU13 == 10) {
-        countU13 = 0;        // Reset U13
-        countU12 += 1;       // Increment U12
-    }
-    if (countU12 == 6) {
-        countU12 = 0;        // Reset U12
-        countU11 += 1;       // Increment U11
-    }
-    if (countU11 == 10) {
-        countU11 = 0;        // Reset U11 (optional if your display rolls over)
-    }
-
-    countU14 += 1;
-
-    // Toggle the built-in LED for frequency verification
-    PC->DOUT ^= (1 << 14);
-}
-

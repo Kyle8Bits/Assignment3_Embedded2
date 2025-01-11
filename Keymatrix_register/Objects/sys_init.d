@@ -1,4 +1,5 @@
-./objects/main.o: main.c C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
+./objects/sys_init.o: C:\Keil_v5\Library\NuMakerLib\Source\SYS_init.c \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdio.h \
   C:\Keil_v5\Library\NUC100Series\Include\NUC100Series.h \
   C:\Keil_v5\Library\CMSIS\Include\core_cm0.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -25,4 +26,6 @@
   C:\Keil_v5\Library\StdDriver\Include\SC.h \
   C:\Keil_v5\Library\StdDriver\Include\PS2.h \
   C:\Keil_v5\Library\StdDriver\Include\CLK.h \
-  C:\Keil_v5\Library\StdDriver\Include\ACMP.h
+  C:\Keil_v5\Library\StdDriver\Include\ACMP.h \
+  C:\Keil_v5\Library\NuMakerLib\Include\MCU_init.h \
+  C:\Keil_v5\Library\NuMakerLib\Include\SYS_init.h
