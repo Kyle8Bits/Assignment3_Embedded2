@@ -640,6 +640,15 @@ main.c(31): warning: implicit conversion changes signedness: 'int' to 'unsigned 
 main.c(47): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<5);
                  ~~ ^~~~~~~
+main.c(58): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        PC->DOUT &= ~(1<<13);
+                                 ~~ ^~~~~~~~
+main.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        PC->DOUT &= ~(1<<14);
+                                 ~~ ^~~~~~~~
+main.c(80): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+                        PC->DOUT &= ~(1<<12);
+                                 ~~ ^~~~~~~~
 main.c(55): warning: enumeration value 'IDLE' not explicitly handled in switch [-Wswitch-enum]
         switch (state){
                 ^
@@ -650,33 +659,33 @@ main.c(54): note: declare 'static' if the function is not intended to be used ou
 void checkStateForClock(){
 ^
 static 
-main.c(63): warning: 'break' will never be executed [-Wunreachable-code-break]
+main.c(69): warning: 'break' will never be executed [-Wunreachable-code-break]
                         break;
                         ^~~~~
-main.c(59): warning: 'break' will never be executed [-Wunreachable-code-break]
+main.c(62): warning: 'break' will never be executed [-Wunreachable-code-break]
                         break;
                         ^~~~~
-main.c(118): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(129): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<3);
                          ~~ ^~~~~~~
-main.c(119): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(130): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<4);
                          ~~ ^~~~~~~
-main.c(120): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(131): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<5);
                          ~~ ^~~~~~~
-main.c(139): warning: no previous prototype for function 'TMR0_IRQHandler' [-Wmissing-prototypes]
+main.c(148): warning: no previous prototype for function 'TMR0_IRQHandler' [-Wmissing-prototypes]
 void TMR0_IRQHandler(void) {
      ^
-main.c(139): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(148): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void TMR0_IRQHandler(void) {
 ^
 static 
-158 warnings generated.
+161 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=2540 RO-data=224 RW-data=4 ZI-data=1224  
-".\Objects\Assignment3_Question2.axf" - 0 Error(s), 158 Warning(s).
+Program Size: Code=2620 RO-data=224 RW-data=4 ZI-data=1224  
+".\Objects\Assignment3_Question2.axf" - 0 Error(s), 161 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -690,7 +699,7 @@ Package Vendor: Nuvoton
   C:\Keil_v5\Packs\Nuvoton\NuMicro_DFP\1.3.16\Device\NUC100\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

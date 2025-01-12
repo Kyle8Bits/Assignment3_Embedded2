@@ -54,10 +54,16 @@ static void K9_checkpress(){
 void checkStateForClock(){
 	switch (state){
 		case START:
+			PC->DOUT |= (1<<14);
+			PC->DOUT &= ~(1<<13);
+			PC->DOUT |= (1<<12);
 			startCount();
 			return;
 			break;
 		case PAUSE:
+			PC->DOUT &= ~(1<<14);
+			PC->DOUT |= (1<<13);
+			PC->DOUT |= (1<<12);
 			pauseCount();
 			return;
 			break;
@@ -69,6 +75,9 @@ void checkStateForClock(){
 			
 			break;
 		default:
+			PC->DOUT |= (1<<14);
+			PC->DOUT |= (1<<13);
+			PC->DOUT &= ~(1<<12);
 			pauseCount();
 			return;
 	}
@@ -160,5 +169,4 @@ void TMR0_IRQHandler(void) {
     countU14 += 1;
 
     // Toggle the built-in LED for frequency verification
-    PC->DOUT ^= (1 << 14);
 }
