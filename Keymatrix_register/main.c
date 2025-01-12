@@ -50,7 +50,7 @@ static void search_col1(void)
 		PE->DOUT = pattern[4];
         return;
     }
-     else{
+     else{ 
 			 
     // Drive ROW3 output pin as LOW. Other ROW pins as HIGH
 		PA->DOUT |= (1<<3);
@@ -182,11 +182,11 @@ int main(void)
     
 	//Configure GPIO for Key Matrix
 	//Rows - outputs
-	PA->PMD &= (~(0b11<< 6));
+		PA->PMD &= (~(0b11<< 6));
     PA->PMD |= (0b01 << 6);    
-	PA->PMD &= (~(0b11<< 8));
+		PA->PMD &= (~(0b11<< 8));
     PA->PMD |= (0b01 << 8);  		
-	PA->PMD &= (~(0b11<< 10));
+		PA->PMD &= (~(0b11<< 10));
     PA->PMD |= (0b01 << 10);  
 		
 	//	//COLUMN 	

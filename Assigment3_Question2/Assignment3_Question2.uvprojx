@@ -448,6 +448,16 @@
               <FileType>5</FileType>
               <FilePath>.\enableTimer0.h</FilePath>
             </File>
+            <File>
+              <FileName>clockState.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\clockState.h</FilePath>
+            </File>
+            <File>
+              <FileName>setupKeyMatrix.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\setupKeyMatrix.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

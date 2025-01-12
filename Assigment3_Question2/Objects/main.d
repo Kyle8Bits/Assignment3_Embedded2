@@ -27,4 +27,5 @@
   C:\Keil_v5\Library\StdDriver\Include\PS2.h \
   C:\Keil_v5\Library\StdDriver\Include\CLK.h \
   C:\Keil_v5\Library\StdDriver\Include\ACMP.h enableClockSource.h \
-  setupGPIO.h enableTimer0.h displayDigit.h
+  setupGPIO.h enableTimer0.h displayDigit.h setupKeyMatrix.h \
+  clockState.h

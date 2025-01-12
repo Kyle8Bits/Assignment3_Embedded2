@@ -33,5 +33,4 @@ void enableTimer0(){
 	TIMER0->TCMPR = TIMER0_COUNT;
 	
 	// Start counting
-	TIMER0->TCSR |= (1 << 30);
 }
