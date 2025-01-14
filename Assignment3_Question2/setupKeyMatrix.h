@@ -6,6 +6,7 @@
 #define C1_pressed (!(PA->PIN & (1<<2)))
 
 void setupKeyMatrix(){
+		//Set up key matrix
 		PA->PMD &= (~(0b11<< 6));
     PA->PMD |= (0b01 << 6);    
 		PA->PMD &= (~(0b11<< 8));

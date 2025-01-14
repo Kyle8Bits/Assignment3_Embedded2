@@ -173,21 +173,27 @@ main.c(5): warning: In file included from...
         PC->PMD &= ~(0xFF << 10);
                 ~~ ^~~~~~~~~~~~~
 ./setupGPIO.h(10): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        PC->PMD |= (0b01010101 << 10);
+        PC->PMD |= (0b010101 << 10);
                     ^
+./setupGPIO.h(12): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        PC->PMD &= ~(0b11 << 16);
+                     ^
 ./setupGPIO.h(12): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-        PC->PMD &= ~(0x3 << 28);
-                ~~ ^~~~~~~~~~~~
-./setupGPIO.h(15): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        PC->PMD &= ~(0b11 << 16);
+                ~~ ^~~~~~~~~~~~~
+./setupGPIO.h(13): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        PC-> PMD |= (0b01 << 16);
+                     ^
+./setupGPIO.h(16): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PE->PMD &= ~(0xFFFF << 0);
                 ~~ ^~~~~~~~~~~~~~
-./setupGPIO.h(16): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupGPIO.h(17): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
         PE->PMD |= 0b0101010101010101<<0; 
                    ^
-./setupGPIO.h(18): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupGPIO.h(19): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
         PB->PMD &= ~(0b11ul<<30);
                      ^
-./setupGPIO.h(28): warning: no newline at end of file [-Wnewline-eof]
+./setupGPIO.h(30): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
 ./setupGPIO.h(6): warning: no previous prototype for function 'setupGPIO' [-Wmissing-prototypes]
@@ -724,11 +730,11 @@ main.c(263): note: declare 'static' if the function is not intended to be used o
 void EINT1_IRQHandler(void){
 ^
 static 
-169 warnings generated.
+171 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=3124 RO-data=224 RW-data=48 ZI-data=1240  
-".\Objects\Assignment3_Question2.axf" - 0 Error(s), 169 Warning(s).
+Program Size: Code=3132 RO-data=224 RW-data=48 ZI-data=1240  
+".\Objects\Assignment3_Question2.axf" - 0 Error(s), 171 Warning(s).
 
 <h2>Software Packages used:</h2>
 

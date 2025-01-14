@@ -41,6 +41,8 @@ void exitDisplay(void);
 void displayLapsRecord(void);
 void enterDisplay(void);
 
+
+//K1 handler
 static void K1_checkpress(){
 	PA->DOUT &= ~(1<<3);
 	PA->DOUT |= (1<<4);
@@ -55,6 +57,7 @@ static void K1_checkpress(){
 	}
 }
 
+//K9 handler 
 static void K9_checkpress(){
 	PA->DOUT |= (1<<3);
 	PA->DOUT |= (1<<4);		
@@ -71,6 +74,8 @@ static void K9_checkpress(){
 	}
 }
 
+
+//K5 check press
 static void K5_checkpress(){
 	PA->DOUT |= (1<<3);
 	PA->DOUT &= ~(1<<4);
@@ -89,7 +94,7 @@ static void K5_checkpress(){
 	}
 }
 
-
+//Handle PB15
 static void handleRotatePress(){
 	if(state == DISPLAY){
 		if(display_index < 4 ){
@@ -103,7 +108,7 @@ static void handleRotatePress(){
 }
 
 
-
+//System state
 void checkStateForClock(){
 	switch (state){
 		case START:
@@ -136,6 +141,8 @@ void checkStateForClock(){
 	}
 }
 
+
+//Save the laps time
 void saveToHistory(int min, int sec1, int sec2, int tick) {
 	
 	if(history_index == 0){
@@ -167,6 +174,8 @@ void resetCounters() {
 }
 }
 
+
+//Save the current at pause mode
 void enterDisplay(){
 	countU11temp = countU11;
 	countU12temp = countU12;
@@ -175,6 +184,8 @@ void enterDisplay(){
 
 }
 
+
+//Reload the previous pause mode
 void exitDisplay(){
 	countU11 = countU11temp;
 	countU12 = countU12temp;
@@ -254,9 +265,9 @@ void TMR0_IRQHandler(void) {
     if (countU11 == 10) {
         countU11 = 0;        // Reset U11 (optional if your display rolls over)
     }
-
+		PC->DOUT ^= (1<<8);
     countU14 += 1;
-
+	
     // Toggle the built-in LED for frequency verification
 }
 

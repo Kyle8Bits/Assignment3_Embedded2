@@ -14,10 +14,11 @@ void enableClockSource(){
 	CLK->PWRCON |= (1 << 0);
 	while(!(CLK->CLKSTATUS & HXT_STATUS));
 	
+	//Enable LXT - 32768kHz
 	CLK->PWRCON |= (1 << 1);
 	while(!(CLK->CLKSTATUS & LXT_STATUS));
 	
-	// Select HXT as clock source
+	// Select LXT as clock source
 	CLK->CLKSEL0 &= ~(0x7 << 0);
 	CLK->CLKSEL0 |= (0x1 << 0);
 	

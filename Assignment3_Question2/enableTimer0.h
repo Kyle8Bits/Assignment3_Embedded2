@@ -31,6 +31,5 @@ void enableTimer0(){
 	
 	// Compare
 	TIMER0->TCMPR = TIMER0_COUNT;
-	
-	// Start counting
+
 }
