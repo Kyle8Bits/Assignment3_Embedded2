@@ -31,7 +31,7 @@ volatile
 int history_index = 0;  
 volatile int display_index = 0;
 
-enum clock_state {START, PAUSE, IDLE, RESET, DISPLAY};
+enum clock_state {START, PAUSE, IDLE, DISPLAY};
 enum clock_state state = IDLE;
 
 void TMR1_IRQHandler(void);
@@ -50,8 +50,10 @@ static void K1_checkpress(){
 	
 	if(K1_pressed){
 		if(state == START && state != DISPLAY){
+			pauseCount();
 			state = PAUSE;
 		}else if(state != START && state != DISPLAY){
+			startCount();
 			state = START;
 		}
 	}
@@ -115,14 +117,12 @@ void checkStateForClock(){
 			PC->DOUT |= (1<<14);
 			PC->DOUT &= ~(1<<13);
 			PC->DOUT |= (1<<12);
-			startCount();
 			return;
 			break;
 		case PAUSE:
 			PC->DOUT &= ~(1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
-			pauseCount();
 			return;
 			break;
 	
@@ -130,13 +130,11 @@ void checkStateForClock(){
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
-			pauseCount();
 			break;
 		default:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT &= ~(1<<12);
-			pauseCount();
 			return;
 	}
 }
