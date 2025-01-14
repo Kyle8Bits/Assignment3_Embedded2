@@ -231,16 +231,16 @@ void TMR0_IRQHandler(void) {
 
     // Perform desired actions (e.g., increment counters, toggle LED)
     if (countU14 == 10) {
-    countU14 = 0;        // Reset U14
-    countU13 += 1;       // Increment U13
+			countU13 += 1;       // Increment U13
+			countU14 = 0;        // Reset U14
     }
     if (countU13 == 10) {
-        countU13 = 0;        // Reset U13
-        countU12 += 1;       // Increment U12
+				countU12 += 1;       // Increment U12
+        countU13 = 0;        // Reset U13  
     }
     if (countU12 == 6) {
+			  countU11 += 1;       // Increment U11
         countU12 = 0;        // Reset U12
-        countU11 += 1;       // Increment U11
     }
     if (countU11 == 10) {
         countU11 = 0;        // Reset U11 (optional if your display rolls over)
