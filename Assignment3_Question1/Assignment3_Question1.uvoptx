@@ -202,7 +202,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>C:\Program Files\Program_Keil\Keil_v5\Library\NUC100Series\Source\system_NUC100Series.c</PathWithFileName>
+      <PathWithFileName>C:\Keil_v5\Library\NUC100Series\Source\system_NUC100Series.c</PathWithFileName>
       <FilenameWithoutPath>system_NUC100Series.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -214,7 +214,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>C:\Program Files\Program_Keil\Keil_v5\Library\NUC100Series\Source\ARM\startup_NUC100Series.s</PathWithFileName>
+      <PathWithFileName>C:\Keil_v5\Library\NUC100Series\Source\ARM\startup_NUC100Series.s</PathWithFileName>
       <FilenameWithoutPath>startup_NUC100Series.s</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -226,7 +226,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>C:\Program Files\Program_Keil\Keil_v5\Library\StdDriver\Source\gpio.c</PathWithFileName>
+      <PathWithFileName>C:\Keil_v5\Library\StdDriver\Source\gpio.c</PathWithFileName>
       <FilenameWithoutPath>gpio.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

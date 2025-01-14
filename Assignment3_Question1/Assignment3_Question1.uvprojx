@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>C:\Program Files\Program_Keil\Keil_v5\Library\NUC1xx-LB_002\Include;C:\Program Files\Program_Keil\Keil_v5\Library\StdDriver\Include;C:\Program Files\Program_Keil\Keil_v5\Library\NuMakerLib\Include;C:\Program Files\Program_Keil\Keil_v5\Library\NUC100Series\Include;C:\Program Files\Program_Keil\Keil_v5\Library\CMSIS\Include</IncludePath>
+              <IncludePath>C:\Keil_v5\Library\NUC1xx-LB_002\Include;C:\Keil_v5\Library\StdDriver\Include;C:\Keil_v5\Library\NuMakerLib\Include;C:\Keil_v5\Library\NUC100Series\Include;C:\Keil_v5\Library\CMSIS\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -396,17 +396,17 @@
             <File>
               <FileName>system_NUC100Series.c</FileName>
               <FileType>1</FileType>
-              <FilePath>C:\Program Files\Program_Keil\Keil_v5\Library\NUC100Series\Source\system_NUC100Series.c</FilePath>
+              <FilePath>C:\Keil_v5\Library\NUC100Series\Source\system_NUC100Series.c</FilePath>
             </File>
             <File>
               <FileName>startup_NUC100Series.s</FileName>
               <FileType>2</FileType>
-              <FilePath>C:\Program Files\Program_Keil\Keil_v5\Library\NUC100Series\Source\ARM\startup_NUC100Series.s</FilePath>
+              <FilePath>C:\Keil_v5\Library\NUC100Series\Source\ARM\startup_NUC100Series.s</FilePath>
             </File>
             <File>
               <FileName>gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>C:\Program Files\Program_Keil\Keil_v5\Library\StdDriver\Source\gpio.c</FilePath>
+              <FilePath>C:\Keil_v5\Library\StdDriver\Source\gpio.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -419,5 +419,20 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>&lt;Project Info&gt;</LayName>
+        <LayDesc></LayDesc>
+        <LayUrl></LayUrl>
+        <LayKeys></LayKeys>
+        <LayCat></LayCat>
+        <LayLic></LayLic>
+        <LayTarg>0</LayTarg>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>
