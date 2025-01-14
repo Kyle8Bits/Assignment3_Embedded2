@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.30.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Khoa Dang, RMIT, LIC=----
+License Information: Liv Cecil, RMIT, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.30.0.0
@@ -21,8 +21,8 @@ Target DLL:      NULink\Nu_Link.dll V3.02
 Dialog DLL:      TARMCM1.DLL V1.14.2.0
  
 <h2>Project:</h2>
-E:\ASM3EMBEDDED\Assignment3_Embedded2\Assignment3_Question2\Assignment3_Question2.uvprojx
-Project File Date:  01/13/2025
+C:\Users\juras\Documents\Assignment3_Embedded2\Assignment3_Question2\Assignment3_Question2.uvprojx
+Project File Date:  01/14/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
@@ -185,12 +185,9 @@ main.c(5): warning: In file included from...
         PE->PMD |= 0b0101010101010101<<0; 
                    ^
 ./setupGPIO.h(18): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
-        PB->PMD &= ~(0b11<<30);
+        PB->PMD &= ~(0b11ul<<30);
                      ^
-./setupGPIO.h(18): warning: signed shift result (0xC0000000) sets the sign bit of the shift expression's type ('int') and becomes negative [-Wshift-sign-overflow]
-        PB->PMD &= ~(0b11<<30);
-                     ~~~~^ ~~
-./setupGPIO.h(21): warning: no newline at end of file [-Wnewline-eof]
+./setupGPIO.h(28): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
 ./setupGPIO.h(6): warning: no previous prototype for function 'setupGPIO' [-Wmissing-prototypes]
@@ -598,132 +595,139 @@ void pauseCount(){
 void pauseCount(){
 ^
 static 
-main.c(16): warning: no previous extern declaration for non-static variable 'countU14' [-Wmissing-variable-declarations]
+main.c(15): warning: no previous extern declaration for non-static variable 'countU14' [-Wmissing-variable-declarations]
 volatile int countU14 = 0;
+             ^
+main.c(15): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile int countU14 = 0;
+         ^
+main.c(16): warning: no previous extern declaration for non-static variable 'countU13' [-Wmissing-variable-declarations]
+volatile int countU13 = 0;
              ^
 main.c(16): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile int countU14 = 0;
-         ^
-main.c(17): warning: no previous extern declaration for non-static variable 'countU13' [-Wmissing-variable-declarations]
 volatile int countU13 = 0;
+         ^
+main.c(17): warning: no previous extern declaration for non-static variable 'countU12' [-Wmissing-variable-declarations]
+volatile int countU12 = 0;
              ^
 main.c(17): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile int countU13 = 0;
-         ^
-main.c(18): warning: no previous extern declaration for non-static variable 'countU12' [-Wmissing-variable-declarations]
 volatile int countU12 = 0;
+         ^
+main.c(18): warning: no previous extern declaration for non-static variable 'countU11' [-Wmissing-variable-declarations]
+volatile int countU11 = 0;
              ^
 main.c(18): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile int countU12 = 0;
-         ^
-main.c(19): warning: no previous extern declaration for non-static variable 'countU11' [-Wmissing-variable-declarations]
-volatile int countU11 = 0;
-             ^
-main.c(19): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 volatile int countU11 = 0;
          ^
-main.c(21): warning: no previous extern declaration for non-static variable 'countU14temp' [-Wmissing-variable-declarations]
+main.c(20): warning: no previous extern declaration for non-static variable 'countU14temp' [-Wmissing-variable-declarations]
 volatile int countU14temp = 0;
+             ^
+main.c(20): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+volatile int countU14temp = 0;
+         ^
+main.c(21): warning: no previous extern declaration for non-static variable 'countU13temp' [-Wmissing-variable-declarations]
+volatile int countU13temp = 0;
              ^
 main.c(21): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile int countU14temp = 0;
-         ^
-main.c(22): warning: no previous extern declaration for non-static variable 'countU13temp' [-Wmissing-variable-declarations]
 volatile int countU13temp = 0;
+         ^
+main.c(22): warning: no previous extern declaration for non-static variable 'countU12temp' [-Wmissing-variable-declarations]
+volatile int countU12temp = 0;
              ^
 main.c(22): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile int countU13temp = 0;
-         ^
-main.c(23): warning: no previous extern declaration for non-static variable 'countU12temp' [-Wmissing-variable-declarations]
 volatile int countU12temp = 0;
+         ^
+main.c(23): warning: no previous extern declaration for non-static variable 'countU11temp' [-Wmissing-variable-declarations]
+volatile int countU11temp = 0;
              ^
 main.c(23): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile int countU12temp = 0;
-         ^
-main.c(24): warning: no previous extern declaration for non-static variable 'countU11temp' [-Wmissing-variable-declarations]
-volatile int countU11temp = 0;
-             ^
-main.c(24): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 volatile int countU11temp = 0;
          ^
-main.c(28): warning: no previous extern declaration for non-static variable 'history' [-Wmissing-variable-declarations]
+main.c(27): warning: no previous extern declaration for non-static variable 'history' [-Wmissing-variable-declarations]
 int history[MAX_HISTORY][4] = {0}; // Array to store up to 5 sets of counter values
     ^
-main.c(28): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(27): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int history[MAX_HISTORY][4] = {0}; // Array to store up to 5 sets of counter values
 ^
-main.c(31): warning: no previous extern declaration for non-static variable 'history_index' [-Wmissing-variable-declarations]
+main.c(30): warning: no previous extern declaration for non-static variable 'history_index' [-Wmissing-variable-declarations]
 int history_index = 0;  
     ^
+main.c(30): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int history_index = 0;  
+^
+main.c(31): warning: no previous extern declaration for non-static variable 'display_index' [-Wmissing-variable-declarations]
+volatile int display_index = 0;
+             ^
 main.c(31): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-int history_index = 0;  
-^
-main.c(32): warning: no previous extern declaration for non-static variable 'display_index' [-Wmissing-variable-declarations]
-volatile int display_index = 0;
-             ^
-main.c(32): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 volatile int display_index = 0;
          ^
-main.c(35): warning: no previous extern declaration for non-static variable 'state' [-Wmissing-variable-declarations]
+main.c(34): warning: no previous extern declaration for non-static variable 'state' [-Wmissing-variable-declarations]
 enum clock_state state = IDLE;
                  ^
-main.c(35): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(34): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 enum clock_state state = IDLE;
 ^
-main.c(45): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(44): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<3);
                  ~~ ^~~~~~~
-main.c(61): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(60): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<5);
                  ~~ ^~~~~~~
-main.c(72): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(71): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<4);
                  ~~ ^~~~~~~
-main.c(105): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(106): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         PC->DOUT &= ~(1<<13);
                                  ~~ ^~~~~~~~
-main.c(111): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(112): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         PC->DOUT &= ~(1<<14);
                                  ~~ ^~~~~~~~
-main.c(130): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(131): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         PC->DOUT &= ~(1<<12);
                                  ~~ ^~~~~~~~
-main.c(102): warning: enumeration value 'IDLE' not explicitly handled in switch [-Wswitch-enum]
+main.c(103): warning: enumeration value 'IDLE' not explicitly handled in switch [-Wswitch-enum]
         switch (state){
                 ^
-main.c(101): warning: no previous prototype for function 'checkStateForClock' [-Wmissing-prototypes]
+main.c(102): warning: no previous prototype for function 'checkStateForClock' [-Wmissing-prototypes]
 void checkStateForClock(){
      ^
-main.c(101): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(102): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void checkStateForClock(){
 ^
 static 
-main.c(116): warning: 'break' will never be executed [-Wunreachable-code-break]
+main.c(117): warning: 'break' will never be executed [-Wunreachable-code-break]
                         break;
                         ^~~~~
-main.c(109): warning: 'break' will never be executed [-Wunreachable-code-break]
+main.c(110): warning: 'break' will never be executed [-Wunreachable-code-break]
                         break;
                         ^~~~~
-main.c(200): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(203): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<3);
                          ~~ ^~~~~~~
-main.c(201): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(204): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<4);
                          ~~ ^~~~~~~
-main.c(202): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(205): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<5);
                          ~~ ^~~~~~~
-main.c(227): warning: no previous prototype for function 'TMR0_IRQHandler' [-Wmissing-prototypes]
+main.c(228): warning: no previous prototype for function 'TMR0_IRQHandler' [-Wmissing-prototypes]
 void TMR0_IRQHandler(void) {
      ^
-main.c(227): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(228): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void TMR0_IRQHandler(void) {
+^
+static 
+main.c(254): warning: no previous prototype for function 'EINT1_IRQHandler' [-Wmissing-prototypes]
+void EINT1_IRQHandler(void){
+     ^
+main.c(254): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void EINT1_IRQHandler(void){
 ^
 static 
 169 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=2932 RO-data=224 RW-data=4 ZI-data=1240  
+Program Size: Code=3044 RO-data=224 RW-data=48 ZI-data=1240  
 ".\Objects\Assignment3_Question2.axf" - 0 Error(s), 169 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -738,7 +742,7 @@ Package Vendor: Nuvoton
   C:\Keil_v5\Packs\Nuvoton\NuMicro_DFP\1.3.16\Device\NUC100\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

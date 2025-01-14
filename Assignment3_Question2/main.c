@@ -11,7 +11,6 @@
 #define K1_pressed (!(PA->PIN & (1<<2)))
 #define Col2_pressed (!(PA->PIN & (1<<1)))
 #define Col3_pressed (!(PA->PIN & (1<<0)))
-#define Rotate_pressed (!(PB->PIN &(1 << 15)))
 
 volatile int countU14 = 0;
 volatile int countU13 = 0;
@@ -77,7 +76,7 @@ static void K5_checkpress(){
 			enterDisplayMode();
 			state = DISPLAY;
 		}
-		else{
+		else if (state == DISPLAY){
 			exitDisplayMode();
 			state = PAUSE;
 		}
@@ -85,15 +84,17 @@ static void K5_checkpress(){
 }
 
 
-static void Rotate_checkpress(){
-	if(display_index < 4 ){
-		display_index+=1;
+static void handleRotatePress(){
+	if(state == DISPLAY){
+		if(display_index < 4 ){
+			display_index+=1;
+		}
+		else{
+			display_index = 0;
+		}
+			displayLapsRecord();
+			PC->DOUT ^= (1<<15);
 	}
-	else{
-		display_index = 0;
-	}
-		displayLapsRecord();
-		PC->DOUT ^= (1<<15);
 }
 
 
@@ -177,6 +178,8 @@ void exitDisplayMode(){
 	countU12 = countU12temp;
 	countU13 = countU13temp;
 	countU14 = countU14temp;
+	
+	display_index = 0;
 }
 
 int main(void)
@@ -203,7 +206,9 @@ int main(void)
 		
 		checkStateForClock();
 		
+		if(state != IDLE){
 		showNumbers(countU11,countU12,countU13, countU14);
+		}
 		
 		if(K1_pressed){
 			K1_checkpress();
@@ -216,10 +221,6 @@ int main(void)
 		if(Col2_pressed){
 			K5_checkpress();
 			while(Col2_pressed);
-		}
-		if(Rotate_pressed){
-			Rotate_checkpress();
-			while(Rotate_pressed);
 		}
 	}
 }
@@ -248,4 +249,12 @@ void TMR0_IRQHandler(void) {
     countU14 += 1;
 
     // Toggle the built-in LED for frequency verification
+}
+
+void EINT1_IRQHandler(void){
+	handleRotatePress();
+	CLK_SysTickDelay(50);
+	PB->ISRC |= (1 << 15);
+	
+	
 }

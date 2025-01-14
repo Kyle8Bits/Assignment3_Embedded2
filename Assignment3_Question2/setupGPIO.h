@@ -15,7 +15,14 @@ void setupGPIO(){
 	PE->PMD &= ~(0xFFFF << 0);
 	PE->PMD |= 0b0101010101010101<<0; 
 	
-	PB->PMD &= ~(0b11<<30);
+	PB->PMD &= ~(0b11ul<<30);
 	PB->IEN |= (1<<15);
+	
+	NVIC->ISER[0] |= (1UL << 3);
+	NVIC->IP[0] &= ~(0x3UL << 30);
+	
+	PB->DBEN |= 1ul << 15;
+	GPIO-> DBNCECON |= 1ul << 4;
+	GPIO -> DBNCECON |= (5ul << 0);
 
 }
