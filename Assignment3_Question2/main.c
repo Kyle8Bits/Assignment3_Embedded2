@@ -23,6 +23,7 @@ volatile int countU12temp = 0;
 volatile int countU11temp = 0;
 
 
+
 #define MAX_HISTORY 5
 int history[MAX_HISTORY][4] = {0}; // Array to store up to 5 sets of counter values
 volatile 
@@ -34,11 +35,11 @@ enum clock_state {START, PAUSE, IDLE, RESET, DISPLAY};
 enum clock_state state = IDLE;
 
 void TMR1_IRQHandler(void);
-void saveToHistory(void);
+void saveToHistory(int,int,int,int);
 void resetCounters(void);
-void enterDisplayMode(void);
-void exitDisplayMode(void);
+void exitDisplay(void);
 void displayLapsRecord(void);
+void enterDisplay(void);
 
 static void K1_checkpress(){
 	PA->DOUT &= ~(1<<3);
@@ -61,7 +62,11 @@ static void K9_checkpress(){
 	
 	if(Col3_pressed){
 		if(state == PAUSE){
-			state = RESET; 
+			resetCounters();
+			state = IDLE; // Transition to IDLE after resetting
+		}
+		else if(state == START){
+			saveToHistory(countU11, countU12, countU13, countU14);
 		}
 	}
 }
@@ -72,12 +77,13 @@ static void K5_checkpress(){
 	PA->DOUT |= (1<<5);
 	
 	if(Col2_pressed){
-		if(state == PAUSE||state == IDLE){
-			enterDisplayMode();
+		if(state != DISPLAY){
+			enterDisplay();
 			state = DISPLAY;
+			displayLapsRecord();
 		}
 		else if (state == DISPLAY){
-			exitDisplayMode();
+			exitDisplay();
 			state = PAUSE;
 		}
 	}
@@ -93,7 +99,6 @@ static void handleRotatePress(){
 			display_index = 0;
 		}
 			displayLapsRecord();
-			PC->DOUT ^= (1<<15);
 	}
 }
 
@@ -115,10 +120,7 @@ void checkStateForClock(){
 			pauseCount();
 			return;
 			break;
-		case RESET:
-			resetCounters();
-			state = IDLE; // Transition to IDLE after resetting
-			break;
+	
 		case DISPLAY:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
@@ -134,28 +136,51 @@ void checkStateForClock(){
 	}
 }
 
-void saveToHistory() {
-    // Save current counter values to the history array
-    history[history_index][0] = countU11;
-    history[history_index][1] = countU12;
-    history[history_index][2] = countU13;
-    history[history_index][3] = countU14;
-
+void saveToHistory(int min, int sec1, int sec2, int tick) {
+	
+	if(history_index == 0){
+		 history[history_index][0] = min;
+			history[history_index][1] = sec1;
+			history[history_index][2] = sec2;
+			history[history_index][3] = tick;
+	}
+	else if(history_index <= 4){
+		history[history_index][0] = min - history[history_index-1][0];
+    history[history_index][1] = sec1 - history[history_index-1][1];
+    history[history_index][2] = sec2 - history[history_index-1][2];
+    history[history_index][3] = tick - history[history_index-1][3];
+	}
     // Update the index, wrapping around if it exceeds MAX_HISTORY
     history_index = (history_index + 1) % MAX_HISTORY;
 }
 
 void resetCounters() {
-    saveToHistory(); // Save the current counter values before resetting
+   countU11 = 0;
+		countU12 = 0;
+	countU13 = 0;
+		countU14 = 0;
+	
+	for (int i = 0; i < MAX_HISTORY; i++) {
+    for (int j = 0; j < 4; j++) {
+        history[i][j] = 0;
+    }
+}
+}
 
-    // Reset all counters
-    countU11 = 0;
-    countU12 = 0;
-    countU13 = 0;
-    countU14 = 0;
+void enterDisplay(){
+	countU11temp = countU11;
+	countU12temp = countU12;
+	countU13temp = countU13;
+	countU14temp = countU14;
 
-    // Display `0,0,0,0`
-    showNumbers(countU11, countU12, countU13, countU14);
+}
+
+void exitDisplay(){
+	countU11 = countU11temp;
+	countU12 = countU12temp;
+	countU13 = countU13temp;
+	countU14 = countU14temp;
+	display_index = 0;
 }
 
 void displayLapsRecord(){
@@ -165,22 +190,6 @@ void displayLapsRecord(){
 		countU14= history[display_index][3]; // Assign history value for U14
 }
 
-void enterDisplayMode(){
-	countU11temp = countU11;
-	countU12temp = countU12;
-	countU13temp = countU13;
-	countU14temp = countU14;
-	
-	displayLapsRecord();
-}
-void exitDisplayMode(){
-	countU11 = countU11temp;
-	countU12 = countU12temp;
-	countU13 = countU13temp;
-	countU14 = countU14temp;
-	
-	display_index = 0;
-}
 
 int main(void)
 {
@@ -231,15 +240,15 @@ void TMR0_IRQHandler(void) {
 
     // Perform desired actions (e.g., increment counters, toggle LED)
     if (countU14 == 10) {
-			countU13 += 1;       // Increment U13
+			++countU13;       // Increment U13
 			countU14 = 0;        // Reset U14
     }
     if (countU13 == 10) {
-				countU12 += 1;       // Increment U12
+				++countU12;       // Increment U12
         countU13 = 0;        // Reset U13  
     }
     if (countU12 == 6) {
-			  countU11 += 1;       // Increment U11
+			  ++countU11;       // Increment U11
         countU12 = 0;        // Reset U12
     }
     if (countU11 == 10) {
@@ -255,6 +264,5 @@ void EINT1_IRQHandler(void){
 	handleRotatePress();
 	CLK_SysTickDelay(50);
 	PB->ISRC |= (1 << 15);
-	
-	
+
 }
