@@ -117,15 +117,12 @@ void checkStateForClock(){
 			PC->DOUT |= (1<<14);
 			PC->DOUT &= ~(1<<13);
 			PC->DOUT |= (1<<12);
-			return;
 			break;
 		case PAUSE:
 			PC->DOUT &= ~(1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
-			return;
 			break;
-	
 		case DISPLAY:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
@@ -135,7 +132,6 @@ void checkStateForClock(){
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT &= ~(1<<12);
-			return;
 	}
 }
 
