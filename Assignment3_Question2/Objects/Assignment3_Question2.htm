@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\Assignment3_Question2.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Assignment3_Question2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Tue Jan 14 16:16:13 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Tue Jan 14 22:46:38 2025
 <BR><P>
-<H3>Maximum Stack Usage =         40 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =         32 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-__rt_entry_main &rArr; main &rArr; saveToHistory &rArr; __aeabi_idivmod
+__rt_entry_main &rArr; main &rArr; showNumbers
 <P>
 <H3>
 Functions with no stack information
@@ -187,8 +187,8 @@ Global Symbols
 <P><STRONG><a name="[77]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[33]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
-<LI>Call Chain = __rt_entry_main &rArr; main &rArr; saveToHistory &rArr; __aeabi_idivmod
+<BR><BR>[Stack]<UL><LI>Max Depth = 32 + Unknown Stack Size
+<LI>Call Chain = __rt_entry_main &rArr; main &rArr; showNumbers
 </UL>
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 <LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -477,8 +477,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[34]"></a>main</STRONG> (Thumb, 312 bytes, Stack size 8 bytes, main.o(.text.main))
-<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = main &rArr; saveToHistory &rArr; __aeabi_idivmod
+<P><STRONG><a name="[34]"></a>main</STRONG> (Thumb, 320 bytes, Stack size 8 bytes, main.o(.text.main))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = main &rArr; showNumbers
 </UL>
 <BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;showNumbers
 <LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;setupKeyMatrix
@@ -499,8 +499,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[34]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[45]"></a>saveToHistory</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, main.o(.text.saveToHistory))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = saveToHistory &rArr; __aeabi_idivmod
+<P><STRONG><a name="[45]"></a>saveToHistory</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, main.o(.text.saveToHistory))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = saveToHistory &rArr; __aeabi_idivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[48]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>

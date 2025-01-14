@@ -82,7 +82,7 @@ static void K5_checkpress(){
 	PA->DOUT |= (1<<5);
 	
 	if(Col2_pressed){
-		if(state != DISPLAY){
+		if(state != DISPLAY && state != START){
 			enterDisplay();
 			state = DISPLAY;
 			displayLapsRecord();
@@ -144,19 +144,10 @@ void checkStateForClock(){
 
 //Save the laps time
 void saveToHistory(int min, int sec1, int sec2, int tick) {
-	
-	if(history_index == 0){
-		 history[history_index][0] = min;
-			history[history_index][1] = sec1;
-			history[history_index][2] = sec2;
-			history[history_index][3] = tick;
-	}
-	else if(history_index <= 4){
-		history[history_index][0] = min - history[history_index-1][0];
-    history[history_index][1] = sec1 - history[history_index-1][1];
-    history[history_index][2] = sec2 - history[history_index-1][2];
-    history[history_index][3] = tick - history[history_index-1][3];
-	}
+		history[history_index][0] = min;
+		history[history_index][1] = sec1;
+		history[history_index][2] = sec2;
+		history[history_index][3] = tick;
     // Update the index, wrapping around if it exceeds MAX_HISTORY
     history_index = (history_index + 1) % MAX_HISTORY;
 }

@@ -208,7 +208,7 @@ void showNumbers(int countU11,int countU12,int countU13, int countU14){
 	
 	turnOnU13();
 	updateDigit(countU13);
-	PE->DOUT |= (1 << 1);
+	PE->DOUT &= ~(1 << 1);
 	turnOffDigit();
 
 	turnOnU12();
