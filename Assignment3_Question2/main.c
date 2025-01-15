@@ -34,7 +34,6 @@ volatile int display_index = 0;
 enum clock_state {START, PAUSE, IDLE, DISPLAY};
 enum clock_state state = IDLE;
 
-void TMR1_IRQHandler(void);
 void saveToHistory(int,int,int,int);
 void resetCounters(void);
 void exitDisplay(void);
@@ -117,21 +116,27 @@ void checkStateForClock(){
 			PC->DOUT |= (1<<14);
 			PC->DOUT &= ~(1<<13);
 			PC->DOUT |= (1<<12);
+			return;
 			break;
 		case PAUSE:
 			PC->DOUT &= ~(1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
+			return;
 			break;
 		case DISPLAY:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
+			return;
 			break;
 		default:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT &= ~(1<<12);
+			return;
+			break;
+
 	}
 }
 
