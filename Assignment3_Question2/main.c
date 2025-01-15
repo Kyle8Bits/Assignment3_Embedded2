@@ -239,6 +239,7 @@ void TMR0_IRQHandler(void) {
     // Clear the interrupt flag
     TIMER0->TISR |= (1 << 0);
 
+	  ++countU14;
     // Perform desired actions (e.g., increment counters, toggle LED)
     if (countU14 == 10) {
 			++countU13;       // Increment U13
@@ -256,7 +257,6 @@ void TMR0_IRQHandler(void) {
         countU11 = 0;        // Reset U11 (optional if your display rolls over)
     }
 		PC->DOUT ^= (1<<8);
-    countU14 += 1;
 	
     // Toggle the built-in LED for frequency verification
 }

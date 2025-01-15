@@ -1,6 +1,6 @@
 Dependencies for Project 'Assignment3_Question2', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6140000::V6.14::ARMCLANG
-F (.\main.c)(0x67875E1F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -Oz -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I C:/Keil_v5/Library/StdDriver/Include -I C:/Keil_v5/Library/NuMakerLib/Include -I C:/Keil_v5/Library/NUC100Series/Include -I C:/Keil_v5/Library/NUC1xx-LB_002/Include -I C:/Keil_v5/Library/CMSIS/Include-I./RTE/_Target_1-IC:/Keil_v5/Packs/Nuvoton/NuMicro_DFP/1.3.16/Device/NUC100/Include-IC:/Keil_v5/ARM/CMSIS/Include-D__UVISION_VERSION="530" -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x67877DC5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -Oz -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I C:/Keil_v5/Library/StdDriver/Include -I C:/Keil_v5/Library/NuMakerLib/Include -I C:/Keil_v5/Library/NUC100Series/Include -I C:/Keil_v5/Library/NUC1xx-LB_002/Include -I C:/Keil_v5/Library/CMSIS/Include-I./RTE/_Target_1-IC:/Keil_v5/Packs/Nuvoton/NuMicro_DFP/1.3.16/Device/NUC100/Include-IC:/Keil_v5/ARM/CMSIS/Include-D__UVISION_VERSION="530" -D_RTE_-o ./objects/main.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5DE00B82)
 I (C:\Keil_v5\Library\NuMakerLib\Include\SYS_init.h)(0x672C5203)
 I (C:\Keil_v5\Library\NUC100Series\Include\NUC100Series.h)(0x672C5202)
@@ -34,7 +34,7 @@ I (enableClockSource.h)(0x67862CE8)
 I (setupGPIO.h)(0x67862CE7)
 I (enableTimer0.h)(0x67862CE8)
 I (displayDigit.h)(0x67875CB9)
-I (setupKeyMatrix.h)(0x67876505)
+I (setupKeyMatrix.h)(0x67876552)
 I (clockState.h)(0x67862CE9)
 F (C:\Keil_v5\Library\NUC100Series\Source\system_NUC100Series.c)(0x672C5202)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m0 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-3 -Oz -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I C:/Keil_v5/Library/StdDriver/Include -I C:/Keil_v5/Library/NuMakerLib/Include -I C:/Keil_v5/Library/NUC100Series/Include -I C:/Keil_v5/Library/NUC1xx-LB_002/Include -I C:/Keil_v5/Library/CMSIS/Include-I./RTE/_Target_1-IC:/Keil_v5/Packs/Nuvoton/NuMicro_DFP/1.3.16/Device/NUC100/Include-IC:/Keil_v5/ARM/CMSIS/Include-D__UVISION_VERSION="530" -D_RTE_-o ./objects/system_nuc100series.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5DE00B82)
@@ -185,4 +185,4 @@ F (.\setupGPIO.h)(0x67862CE7)()
 F (.\enableClockSource.h)(0x67862CE8)()
 F (.\enableTimer0.h)(0x67862CE8)()
 F (.\clockState.h)(0x67862CE9)()
-F (.\setupKeyMatrix.h)(0x67876505)()
+F (.\setupKeyMatrix.h)(0x67876552)()
