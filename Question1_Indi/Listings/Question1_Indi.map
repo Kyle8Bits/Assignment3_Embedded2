@@ -420,13 +420,14 @@ Image Symbol Table
     [Anonymous Symbol]                       0x00000288   Section        0  main.o(.text.enableGPIO)
     __arm_cp.2_0                             0x000002a8   Number         4  main.o(.text.enableGPIO)
     [Anonymous Symbol]                       0x000002ac   Section        0  main.o(.text.enableTimer1)
-    __arm_cp.3_0                             0x00000314   Number         4  main.o(.text.enableTimer1)
-    __arm_cp.3_2                             0x00000318   Number         4  main.o(.text.enableTimer1)
-    __arm_cp.3_3                             0x0000031c   Number         4  main.o(.text.enableTimer1)
-    [Anonymous Symbol]                       0x00000320   Section        0  main.o(.text.main)
-    __arm_cp.0_0                             0x0000035c   Number         4  main.o(.text.main)
-    __arm_cp.0_1                             0x00000360   Number         4  main.o(.text.main)
-    __arm_cp.0_2                             0x00000364   Number         4  main.o(.text.main)
+    __arm_cp.3_0                             0x00000320   Number         4  main.o(.text.enableTimer1)
+    __arm_cp.3_2                             0x00000324   Number         4  main.o(.text.enableTimer1)
+    __arm_cp.3_3                             0x00000328   Number         4  main.o(.text.enableTimer1)
+    __arm_cp.3_4                             0x0000032c   Number         4  main.o(.text.enableTimer1)
+    [Anonymous Symbol]                       0x00000330   Section        0  main.o(.text.main)
+    __arm_cp.0_0                             0x0000036c   Number         4  main.o(.text.main)
+    __arm_cp.0_1                             0x00000370   Number         4  main.o(.text.main)
+    __arm_cp.0_2                             0x00000374   Number         4  main.o(.text.main)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     Heap_Mem                                 0x20000068   Data           0  startup_nuc100series.o(HEAP)
     Stack_Mem                                0x20000068   Data        1024  startup_nuc100series.o(STACK)
@@ -568,10 +569,10 @@ Image Symbol Table
     TMR1_IRQHandler                          0x00000219   Thumb Code    52  main.o(.text.TMR1_IRQHandler)
     enableClockSource                        0x0000024d   Thumb Code    60  main.o(.text.enableClockSource)
     enableGPIO                               0x00000289   Thumb Code    36  main.o(.text.enableGPIO)
-    enableTimer1                             0x000002ad   Thumb Code   116  main.o(.text.enableTimer1)
-    main                                     0x00000321   Thumb Code    72  main.o(.text.main)
-    Region$$Table$$Base                      0x00000368   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00000378   Number         0  anon$$obj.o(Region$$Table)
+    enableTimer1                             0x000002ad   Thumb Code   132  main.o(.text.enableTimer1)
+    main                                     0x00000331   Thumb Code    72  main.o(.text.main)
+    Region$$Table$$Base                      0x00000378   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00000388   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
     count_cycle                              0x20000060   Data           4  main.o(.bss.count_cycle)
@@ -584,9 +585,9 @@ Memory Map of the image
 
   Image Entry point : 0x00000149
 
-  Load Region LR_1 (Base: 0x00000000, Size: 0x00000378, Max: 0xffffffff, ABSOLUTE)
+  Load Region LR_1 (Base: 0x00000000, Size: 0x00000388, Max: 0xffffffff, ABSOLUTE)
 
-    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000378, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RO (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00000388, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -648,23 +649,23 @@ Memory Map of the image
     0x00000218   0x00000218   0x00000034   Code   RO           10    .text.TMR1_IRQHandler  main.o
     0x0000024c   0x0000024c   0x0000003c   Code   RO            4    .text.enableClockSource  main.o
     0x00000288   0x00000288   0x00000024   Code   RO            6    .text.enableGPIO    main.o
-    0x000002ac   0x000002ac   0x00000074   Code   RO            8    .text.enableTimer1  main.o
-    0x00000320   0x00000320   0x00000048   Code   RO            2    .text.main          main.o
-    0x00000368   0x00000368   0x00000010   Data   RO          323    Region$$Table       anon$$obj.o
+    0x000002ac   0x000002ac   0x00000084   Code   RO            8    .text.enableTimer1  main.o
+    0x00000330   0x00000330   0x00000048   Code   RO            2    .text.main          main.o
+    0x00000378   0x00000378   0x00000010   Data   RO          323    Region$$Table       anon$$obj.o
 
 
-    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000378, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_RW (Exec base: 0x20000000, Load base: 0x00000388, Size: 0x00000000, Max: 0xffffffff, ABSOLUTE)
 
     **** No section assigned to this execution region ****
 
 
-    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x00000378, Size: 0x00000468, Max: 0xffffffff, ABSOLUTE)
+    Execution Region ER_ZI (Exec base: 0x20000000, Load base: 0x00000388, Size: 0x00000468, Max: 0xffffffff, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000        -       0x00000060   Zero   RW          189    .bss                c_p.l(libspace.o)
     0x20000060        -       0x00000004   Zero   RW           12    .bss.count_cycle    main.o
-    0x20000064   0x00000378   0x00000004   PAD
+    0x20000064   0x00000388   0x00000004   PAD
     0x20000068        -       0x00000000   Zero   RW           34    HEAP                startup_nuc100series.o
     0x20000068        -       0x00000400   Zero   RW           33    STACK               startup_nuc100series.o
 
@@ -676,12 +677,12 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       336         44          0          0          4       3088   main.o
+       352         48          0          0          4       3097   main.o
        100         46        192          0       1024        740   startup_nuc100series.o
          2          0          0          0          0       2229   system_nuc100series.o
 
     ----------------------------------------------------------------------
-       438         90        208          0       1032       6057   Object Totals
+       454         94        208          0       1032       6066   Object Totals
          0          0         16          0          0          0   (incl. Generated)
          0          0          0          0          4          0   (incl. Padding)
 
@@ -729,15 +730,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-       680        106        208          0       1128       6429   Grand Totals
-       680        106        208          0       1128       6429   ELF Image Totals
-       680        106        208          0          0          0   ROM Totals
+       696        110        208          0       1128       6438   Grand Totals
+       696        110        208          0       1128       6438   ELF Image Totals
+       696        110        208          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                  888 (   0.87kB)
+    Total RO  Size (Code + RO Data)                  904 (   0.88kB)
     Total RW  Size (RW Data + ZI Data)              1128 (   1.10kB)
-    Total ROM Size (Code + RO Data + RW Data)        888 (   0.87kB)
+    Total ROM Size (Code + RO Data + RW Data)        904 (   0.88kB)
 
 ==============================================================================
 

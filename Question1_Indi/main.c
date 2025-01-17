@@ -67,6 +67,8 @@ void enableTimer1(){
 	
 	TIMER1->TCSR |= (1 << 29);
 	NVIC->ISER[0] = (1<<9);
+	NVIC->IP[2] &= ~(0b11 << 14);
+	
 
 	TIMER1->TCMPR = TIMER1_COUNT;
 }

@@ -187,14 +187,20 @@ main.c(62): warning: implicit conversion changes signedness: 'int' to 'unsigned 
 main.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         TIMER1->TCSR &= ~(1 << 24);
                      ~~ ^~~~~~~~~~
-main.c(80): warning: no newline at end of file [-Wnewline-eof]
+main.c(70): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+        NVIC->IP[2] &= ~(0b11 << 14);
+                         ^
+main.c(70): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+        NVIC->IP[2] &= ~(0b11 << 14);
+                    ~~ ^~~~~~~~~~~~~
+main.c(82): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-41 warnings generated.
+43 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=680 RO-data=208 RW-data=0 ZI-data=1128  
-".\Objects\Question1_Indi.axf" - 0 Error(s), 41 Warning(s).
+Program Size: Code=696 RO-data=208 RW-data=0 ZI-data=1128  
+".\Objects\Question1_Indi.axf" - 0 Error(s), 43 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -208,7 +214,7 @@ Package Vendor: Nuvoton
   C:\Keil_v5\Packs\Nuvoton\NuMicro_DFP\1.3.16\Device\NUC100\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
