@@ -178,8 +178,7 @@ void updateDigit(int count){
 }
 
 
-void showNumbers(int countU11,int countU12,int countU13, int countU14){
-	
+void showNumbers(int countU14){
 	turnOnU14();
 	updateDigit(countU14);
 	turnOffDigit();

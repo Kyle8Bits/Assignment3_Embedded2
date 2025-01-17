@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6140000::V6.14::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -258,17 +259,17 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
@@ -278,7 +279,7 @@
                 <Size>0x20000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -338,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>C:\Keil_v5\Library\CMSIS\Include;C:\Keil_v5\Library\NUC1xx-LB_002\Include;C:\Keil_v5\Library\NUC100Series\Include;C:\Keil_v5\Library\NuMakerLib\Include;C:\Keil_v5\Library\StdDriver\Include</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -380,7 +381,59 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>User Group</GroupName>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>System Group</GroupName>
+          <Files>
+            <File>
+              <FileName>system_NUC100Series.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\Library\NUC100Series\Source\system_NUC100Series.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_NUC100Series.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>C:\Keil_v5\Library\NUC100Series\Source\ARM\startup_NUC100Series.s</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\Library\StdDriver\Source\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\Library\StdDriver\Source\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>clk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\Library\StdDriver\Source\clk.c</FilePath>
+            </File>
+            <File>
+              <FileName>SYS_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>C:\Keil_v5\Library\NuMakerLib\Source\SYS_init.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Header</GroupName>
+          <Files>
+            <File>
+              <FileName>DisplayNumber.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DisplayNumber.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
