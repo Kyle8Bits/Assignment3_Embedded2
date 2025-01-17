@@ -179,7 +179,19 @@ void updateDigit(int count){
 
 
 void showNumbers(int countU11,int countU12,int countU13, int countU14){
-	
+	turnOnU11();
+	updateDigit(countU11);
+	turnOffDigit();
+
+	turnOnU12();
+	updateDigit(countU12);
+	turnOffDigit();
+
+	turnOnU13();
+	updateDigit(countU13);
+	PE->DOUT &= ~(1 << 1); // segment dot
+	turnOffDigit();
+
 	turnOnU14();
 	updateDigit(countU14);
 	turnOffDigit();

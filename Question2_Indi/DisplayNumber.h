@@ -178,14 +178,6 @@ void updateDigit(int count){
 }
 
 
-void showNumbers(int countU14){
-	turnOnU14();
-	updateDigit(countU14);
-	turnOffDigit();
-
-}
-
-
 
 
 
