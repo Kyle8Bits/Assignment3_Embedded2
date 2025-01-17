@@ -34,7 +34,6 @@ volatile int display_index = 0;
 enum clock_state {START, PAUSE, IDLE, DISPLAY};
 enum clock_state state = IDLE;
 
-void TMR1_IRQHandler(void);
 void saveToHistory(int,int,int,int);
 void resetCounters(void);
 void exitDisplay(void);
@@ -117,21 +116,27 @@ void checkStateForClock(){
 			PC->DOUT |= (1<<14);
 			PC->DOUT &= ~(1<<13);
 			PC->DOUT |= (1<<12);
+			return;
 			break;
 		case PAUSE:
 			PC->DOUT &= ~(1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
+			return;
 			break;
 		case DISPLAY:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT |= (1<<12);
+			return;
 			break;
 		default:
 			PC->DOUT |= (1<<14);
 			PC->DOUT |= (1<<13);
 			PC->DOUT &= ~(1<<12);
+			return;
+			break;
+
 	}
 }
 
@@ -234,6 +239,7 @@ void TMR0_IRQHandler(void) {
     // Clear the interrupt flag
     TIMER0->TISR |= (1 << 0);
 
+	  ++countU14;
     // Perform desired actions (e.g., increment counters, toggle LED)
     if (countU14 == 10) {
 			++countU13;       // Increment U13
@@ -251,7 +257,6 @@ void TMR0_IRQHandler(void) {
         countU11 = 0;        // Reset U11 (optional if your display rolls over)
     }
 		PC->DOUT ^= (1<<8);
-    countU14 += 1;
 	
     // Toggle the built-in LED for frequency verification
 }

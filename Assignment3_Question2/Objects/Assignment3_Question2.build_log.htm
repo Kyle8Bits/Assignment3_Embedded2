@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.30.0.0
 Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Kyle Mai, RMIT, LIC=----
+License Information: Khoa Dang, RMIT, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.30.0.0
@@ -21,8 +21,8 @@ Target DLL:      NULink\Nu_Link.dll V3.02
 Dialog DLL:      TARMCM1.DLL V1.14.2.0
  
 <h2>Project:</h2>
-C:\Users\ADMIN\Documents\Code\VisualStudioCode\Assignment3_Embedded2\Assignment3_Question2\Assignment3_Question2.uvprojx
-Project File Date:  01/14/2025
+E:\ASM3EMBEDDED\Assignment3_Embedded2\Assignment3_Question2\Assignment3_Question2.uvprojx
+Project File Date:  01/13/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
@@ -539,40 +539,40 @@ void showNumbers(int countU11,int countU12,int countU13, int countU14){
 ^
 static 
 main.c(8): warning: In file included from...
-./setupKeyMatrix.h(10): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupKeyMatrix.h(6): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
                 PA->PMD &= (~(0b11<< 6));
                               ^
-./setupKeyMatrix.h(10): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+./setupKeyMatrix.h(6): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->PMD &= (~(0b11<< 6));
                         ~~  ^~~~~~~~~~~
-./setupKeyMatrix.h(11): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupKeyMatrix.h(7): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
     PA->PMD |= (0b01 << 6);    
                 ^
-./setupKeyMatrix.h(12): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupKeyMatrix.h(8): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
                 PA->PMD &= (~(0b11<< 8));
                               ^
-./setupKeyMatrix.h(12): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+./setupKeyMatrix.h(8): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->PMD &= (~(0b11<< 8));
                         ~~  ^~~~~~~~~~~
-./setupKeyMatrix.h(13): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupKeyMatrix.h(9): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
     PA->PMD |= (0b01 << 8);             
                 ^
-./setupKeyMatrix.h(14): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupKeyMatrix.h(10): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
                 PA->PMD &= (~(0b11<< 10));
                               ^
-./setupKeyMatrix.h(14): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+./setupKeyMatrix.h(10): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->PMD &= (~(0b11<< 10));
                         ~~  ^~~~~~~~~~~~
-./setupKeyMatrix.h(15): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+./setupKeyMatrix.h(11): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
     PA->PMD |= (0b01 << 10);  
                 ^
-./setupKeyMatrix.h(16): warning: no newline at end of file [-Wnewline-eof]
+./setupKeyMatrix.h(12): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-./setupKeyMatrix.h(8): warning: no previous prototype for function 'setupKeyMatrix' [-Wmissing-prototypes]
+./setupKeyMatrix.h(4): warning: no previous prototype for function 'setupKeyMatrix' [-Wmissing-prototypes]
 void setupKeyMatrix(){
      ^
-./setupKeyMatrix.h(8): note: declare 'static' if the function is not intended to be used outside of this translation unit
+./setupKeyMatrix.h(4): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void setupKeyMatrix(){
 ^
 static 
@@ -590,13 +590,6 @@ static
 ./clockState.h(13): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-main.c(11): warning: 'K1_pressed' macro redefined [-Wmacro-redefined]
-#define K1_pressed (!(PA->PIN & (1<<2)))
-        ^
-./setupKeyMatrix.h(4): note: previous definition is here
-#define K1_pressed (!(PA->PIN & (1<<0)))                
-        ^
-main.c(9): warning: In file included from...
 ./clockState.h(10): warning: no previous prototype for function 'pauseCount' [-Wmissing-prototypes]
 void pauseCount(){
      ^
@@ -676,62 +669,74 @@ enum clock_state state = IDLE;
 main.c(35): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 enum clock_state state = IDLE;
 ^
-main.c(47): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(46): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<3);
                  ~~ ^~~~~~~
-main.c(66): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(65): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<5);
                  ~~ ^~~~~~~
-main.c(83): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(82): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PA->DOUT &= ~(1<<4);
                  ~~ ^~~~~~~
-main.c(118): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(117): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         PC->DOUT &= ~(1<<13);
                                  ~~ ^~~~~~~~
 main.c(122): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         PC->DOUT &= ~(1<<14);
                                  ~~ ^~~~~~~~
-main.c(134): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(136): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                         PC->DOUT &= ~(1<<12);
                                  ~~ ^~~~~~~~
-main.c(115): warning: enumeration value 'IDLE' not explicitly handled in switch [-Wswitch-enum]
+main.c(114): warning: enumeration value 'IDLE' not explicitly handled in switch [-Wswitch-enum]
         switch (state){
                 ^
-main.c(114): warning: no previous prototype for function 'checkStateForClock' [-Wmissing-prototypes]
+main.c(113): warning: no previous prototype for function 'checkStateForClock' [-Wmissing-prototypes]
 void checkStateForClock(){
      ^
-main.c(114): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(113): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void checkStateForClock(){
 ^
 static 
-main.c(208): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(138): warning: 'break' will never be executed [-Wunreachable-code-break]
+                        break;
+                        ^~~~~
+main.c(132): warning: 'break' will never be executed [-Wunreachable-code-break]
+                        break;
+                        ^~~~~
+main.c(126): warning: 'break' will never be executed [-Wunreachable-code-break]
+                        break;
+                        ^~~~~
+main.c(120): warning: 'break' will never be executed [-Wunreachable-code-break]
+                        break;
+                        ^~~~~
+main.c(213): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<3);
                          ~~ ^~~~~~~
-main.c(209): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(214): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<4);
                          ~~ ^~~~~~~
-main.c(210): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(215): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
                 PA->DOUT &= ~(1<<5);
                          ~~ ^~~~~~~
-main.c(233): warning: no previous prototype for function 'TMR0_IRQHandler' [-Wmissing-prototypes]
+main.c(238): warning: no previous prototype for function 'TMR0_IRQHandler' [-Wmissing-prototypes]
 void TMR0_IRQHandler(void) {
      ^
-main.c(233): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(238): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void TMR0_IRQHandler(void) {
 ^
 static 
-main.c(259): warning: no previous prototype for function 'EINT1_IRQHandler' [-Wmissing-prototypes]
+main.c(264): warning: no previous prototype for function 'EINT1_IRQHandler' [-Wmissing-prototypes]
 void EINT1_IRQHandler(void){
      ^
-main.c(259): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(264): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void EINT1_IRQHandler(void){
 ^
 static 
-170 warnings generated.
+173 warnings generated.
 compiling main.c...
 linking...
 Program Size: Code=3036 RO-data=224 RW-data=48 ZI-data=1240  
-".\Objects\Assignment3_Question2.axf" - 0 Error(s), 170 Warning(s).
+".\Objects\Assignment3_Question2.axf" - 0 Error(s), 173 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -745,7 +750,7 @@ Package Vendor: Nuvoton
   C:\Keil_v5\Packs\Nuvoton\NuMicro_DFP\1.3.16\Device\NUC100\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
