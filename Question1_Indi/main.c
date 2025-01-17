@@ -11,6 +11,8 @@ void enableGPIO(void);
 void enableTimer1(void);
 void TMR1_IRQHandler(void);
 
+int count_cycle = 0;
+
 int main (void){
 	SYS_UnlockReg();
 	enableClockSource();
@@ -70,6 +72,9 @@ void enableTimer1(){
 }
 
 void TMR1_IRQHandler(void) {
-	TIMER1->TISR |= (1 << 0);
-	PC->DOUT ^= (1<<15);
+	if(count_cycle < 10){
+		PC->DOUT ^= (1<<15);
+		TIMER1->TISR |= (1 << 0);
+	}
+	count_cycle++;
 }

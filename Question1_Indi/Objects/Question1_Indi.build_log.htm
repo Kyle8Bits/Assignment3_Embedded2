@@ -148,47 +148,53 @@ C:/Keil_v5/Library/NUC100Series/Include\NUC100Series.h(13625): warning: non-port
 #include "ACMP.h"
          ^~~~~~~~
          "acmp.h"
-main.c(36): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(14): warning: no previous extern declaration for non-static variable 'count_cycle' [-Wmissing-variable-declarations]
+int count_cycle = 0;
+    ^
+main.c(14): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+int count_cycle = 0;
+^
+main.c(38): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         CLK->CLKSEL0 &= ~(0x7 << 0);
                      ~~ ^~~~~~~~~~~
-main.c(38): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(40): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         CLK->PWRCON &= ~(1 << 7);
                     ~~ ^~~~~~~~~
-main.c(40): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(42): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         CLK->CLKDIV &= ~(0xF << 0);
                     ~~ ^~~~~~~~~~~
-main.c(44): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+main.c(46): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
         PC->PMD &= ~(0b11 << 14);
                      ^
-main.c(44): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(46): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         PC->PMD &= ~(0b11 << 14);
                 ~~ ^~~~~~~~~~~~~
-main.c(45): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+main.c(47): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
         PC->PMD |= (0b01 << 14);
                     ^
-main.c(47): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
+main.c(49): warning: binary integer literals are a GNU extension [-Wgnu-binary-literal]
         PB->PMD &= ~(0b11ul<<30);
                      ^
-main.c(51): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(53): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         CLK->CLKSEL1 &= ~(0x7 << 12);
                      ~~ ^~~~~~~~~~~~
-main.c(57): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(59): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         TIMER1->TCSR &= ~(0xFF << 0);
                      ~~ ^~~~~~~~~~~~
-main.c(60): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(62): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         TIMER1->TCSR &= ~(0x3 << 27);
                      ~~ ^~~~~~~~~~~~
-main.c(62): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+main.c(64): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
         TIMER1->TCSR &= ~(1 << 24);
                      ~~ ^~~~~~~~~~
-main.c(75): warning: no newline at end of file [-Wnewline-eof]
+main.c(80): warning: no newline at end of file [-Wnewline-eof]
 }
  ^
-40 warnings generated.
+41 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=660 RO-data=208 RW-data=0 ZI-data=1120  
-".\Objects\Question1_Indi.axf" - 0 Error(s), 40 Warning(s).
+Program Size: Code=680 RO-data=208 RW-data=0 ZI-data=1128  
+".\Objects\Question1_Indi.axf" - 0 Error(s), 41 Warning(s).
 
 <h2>Software Packages used:</h2>
 
