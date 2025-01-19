@@ -9,6 +9,7 @@ void turnOnU14(){
 	PC->DOUT &= ~(1 << 6); // U12
 	PC->DOUT &= ~(1 << 7); 	// U11
 }
+
 void turnOnU13(){
 	PC->DOUT &= ~(1 << 4); // U14
 	PC->DOUT |= (1 << 5); // U13
@@ -193,27 +194,6 @@ void updateDigit(int count){
 			displayZero();
 			break;
 	}
-}
-
-
-void showNumbers(int countU11,int countU12,int countU13, int countU14){
-	turnOnU11();
-	updateDigit(countU11);
-	turnOffDigit();
-
-	turnOnU12();
-	updateDigit(countU12);
-	turnOffDigit();
-
-	turnOnU13();
-	updateDigit(countU13);
-	PE->DOUT &= ~(1 << 1); // segment dot
-	turnOffDigit();
-
-	turnOnU14();
-	updateDigit(countU14);
-	turnOffDigit();
-
 }
 
 

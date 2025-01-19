@@ -1,40 +1,43 @@
 #include <stdio.h>
 #include "NUC100Series.h"
 #include "SYS_init.h"
-#include "DisplayNumber.h"
-#define HXT_STATUS 1 << 0
+#include "sevenSegments.h"
 
 #define TIMER3_COUNT 4000000 - 1
+
+#define HXT_STATUS 1 << 0
 
 void enableClockSource(void);
 void enableTimer3(void);
 void setupGPIO(void);
 
-volatile int U14_number = 0;
 
-enum u14_state
+volatile int segment_number = 0;
+
+enum segment_state
 {
 	ON,
 	OFF
 };
-enum u14_state state = ON;
+enum segment_state state = ON;
 
-int main(void)
-{
+int main(void){
+	
 	SYS_UnlockReg();
 	enableClockSource();
 	setupGPIO();
 	enableTimer3();
 
 	SYS_LockReg();
-
-	while (1)
-	{
+	
+	while(1){
 	}
 }
 
-void enableClockSource()
-{
+
+
+
+void enableClockSource(){
 	CLK->PWRCON |= (1 << 0);
 	while (!(CLK->CLKSTATUS & HXT_STATUS));
 
@@ -46,8 +49,7 @@ void enableClockSource()
 	CLK->CLKDIV |= (0b10 << 0);
 }
 
-void enableTimer3()
-{
+void enableTimer3(){
 	CLK->CLKSEL1 &= ~(0x7 << 20);
 	CLK->CLKSEL1 |= (0b010 << 20);
 
@@ -72,20 +74,18 @@ void enableTimer3()
 	TIMER3->TCSR |= (1 << 30);
 }
 
-void setupGPIO()
-{
+void setupGPIO(){
 	PE->PMD &= ~(0xFFFF << 0);
-	PE->PMD |= 0b0101010101010101 << 0;
-
+	PE->PMD |= 0b0101010101010101<<0;
+	
 	PB->PMD &= ~(0b11ul << 30);
 	PB->IEN |= (1 << 15);
-
+	
 	NVIC->ISER[0] |= (1 << 3);
 	NVIC->IP[0] &= ~(0b11 << 30);
 }
 
-void TMR3_IRQHandler(void)
-{
+void TMR3_IRQHandler(void){
 	if (state == ON)
 	{
 		state = OFF;
@@ -94,19 +94,30 @@ void TMR3_IRQHandler(void)
 	else
 	{
 		state = ON;
-		turnOnU14();
-		updateDigit(U14_number);
+		if(segment_number == 0){
+			turnOnU14();
+		}
+		else if(segment_number == 1){
+			turnOnU13();
+		}
+		else if(segment_number == 2){
+			turnOnU12();
+		}
+		else if(segment_number == 3){
+			turnOnU11();
+		}
+		updateDigit(segment_number);
 	}
 	TIMER3->TISR |= (1 << 0);
 }
 
-void EINT1_IRQHandler(void)
-{
-	if (U14_number == 10)
+void EINT1_IRQHandler(void){
+	segment_number++;
+	if (segment_number > 3)
 	{
-		U14_number = 0;
+		segment_number = 0;
 	}
-	U14_number++;
-	CLK_SysTickDelay(500000);
+	CLK_SysTickDelay(100000);
 	PB->ISRC |= (1 << 15);
 }
+
